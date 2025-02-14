@@ -52,3 +52,23 @@ def bfs_search(start, target)
 
   {}
 end
+
+def reconstruct_path(parent_tracker, target)
+  path = []
+  current_position = target
+
+  while current_position
+    path << current_position
+    current_position = parent_tracker[current_position]
+  end
+
+  path.reverse
+end
+
+def knight_moves(start, target)
+  parent_tracker = bfs_search(start, target)
+  path = reconstruct_path(parent_tracker, target)
+
+  puts "You made it in #{path.length - 1} moves! Here's your path:"
+  path.each { |pos| p pos }
+end
