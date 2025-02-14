@@ -37,5 +37,19 @@ def explore_moves(current_position, queue, visited, parent_tracker)
     end
 end
 
-
+def bfs_search(start, target)
+    return { target => nil } if start == target
+  
+    queue, parent_tracker, visited = initialize_bfs(start)
+  
+    until queue.empty?
+      current_position = queue.shift
+      return parent_tracker if target_reached?(current_position, target)
+  
+      explore_moves(current_position, queue, visited, parent_tracker)
+    end
+  
+    {}
+end
+  
   
