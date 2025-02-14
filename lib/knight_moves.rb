@@ -11,3 +11,11 @@ def valid_moves(position)
     moves.select { |new_x, new_y| new_x.between?(0, 7) && new_y.between?(0, 7)}
 end
 
+def initialize_bfs(start)
+    queue = [start]
+    parent_tracker = { start => nil }
+    visited = Set.new([start])
+    [queue, parent_tracker, visited]
+end
+
+
