@@ -22,5 +22,9 @@ def target_reached?(current_position, target)
     current_position == target
 end
 
-
+def is_valid_move?(position, visited)
+    x, y = position
+    x.between?(0, 7) && y.between?(0, 7) && !visited.include?(position)
+end
   
+
