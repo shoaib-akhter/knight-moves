@@ -27,4 +27,15 @@ def is_valid_move?(position, visited)
     x.between?(0, 7) && y.between?(0, 7) && !visited.include?(position)
 end
   
+def explore_moves(current_position, queue, visited, parent_tracker)
+    valid_moves(current_position).each do |move|
+      next unless is_valid_move?(move, visited)
+  
+      visited.add(move)
+      parent_tracker[move] = current_position
+      queue.push(move)
+    end
+end
 
+
+  
