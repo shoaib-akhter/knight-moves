@@ -18,4 +18,9 @@ def initialize_bfs(start)
     [queue, parent_tracker, visited]
 end
 
+def target_reached?(current_position, target)
+    current_position == target
+end
 
+
+  
